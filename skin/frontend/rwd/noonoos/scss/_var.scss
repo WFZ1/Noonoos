@@ -60,7 +60,7 @@ $bp-xlarge: 1199px;
 
 $gap: 10px;
 
-$trim: 30px;
+$trim: 15px;
 // This will get applied on viewports smaller than 480px
 $trim-small: 15px;
 
@@ -75,7 +75,7 @@ $element-spacing: 7px;
 
 // Dimensions
 
-$max-content-width: 1200px;
+$max-content-width: 950px;
 $max-container-width: $trim + $max-content-width + $trim;
 $max-std-formatted-width: 50em;
 
@@ -170,10 +170,10 @@ $c-h5: $c-text;
 $c-h6: $c-text;
 
 // Link
-$c-link: $c-action;
-$c-link-hover: darken($c-action, 5%);
-$c-link-focus: $c-action;
-$c-link-active: darken($c-action, (5% / 2));
+$c-link: $c-black;
+$c-link-hover: #ec008c;
+$c-link-focus: #ec008c;
+$c-link-active: #ec008c;
 
 // Module (generic)
 
@@ -218,9 +218,10 @@ $c-email-highlighted-border: #FFF74C;
 
 // Font Stacks
 
-$f-stack-sans: 'Helvetica Neue', Verdana, Arial, sans-serif;
+$f-stack-sans: 'Neutra Text TF', Arial, sans-serif;
 $f-stack-serif: Georgia, Times, 'Times New Roman', serif;
-$f-stack-special: 'Raleway', 'Helvetica Neue', Verdana, Arial, sans-serif;
+$f-stack-special: Arial, sans-serif;
+$f-stack-extra: "Open house", sans-serif;
 
 $f-stack-default: $f-stack-sans;
 

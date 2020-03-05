@@ -54,19 +54,20 @@ select,
 table,
 textarea {
     font-family: $f-stack-sans;
-    color: $c-text;
+    color: $c-black;
     font-size: $f-size;
     line-height: $b-line-height;
+    outline: none;
 }
 
 a {
-    color: $c-link;
+    color: $c-black;
     text-decoration: none;
+    transition: color .5s;
 }
 
 a:hover {
     color: $c-link-hover;
-    text-decoration: underline;
 }
 
 a:focus {

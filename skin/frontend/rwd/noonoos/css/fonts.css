@@ -1,0 +1,53 @@
+/*----------  Neutra Text TF  ----------*/
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF-Book.woff2") format("woff2"), url("../fonts/NeutraTextTF-Book.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF-BookItalic.woff2") format("woff2"), url("../fonts/NeutraTextTF-BookItalic.woff") format("woff");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF.woff2") format("woff2"), url("../fonts/NeutraTextTF.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF-Demi.woff2") format("woff2"), url("../fonts/NeutraTextTF-Demi.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF-Bold.woff2") format("woff2"), url("../fonts/NeutraTextTF-Bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Neutra Text TF";
+  src: url("../fonts/NeutraTextTF-BoldItalic.woff2") format("woff2"), url("../fonts/NeutraTextTF-BoldItalic.woff") format("woff");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+/*----------  Open house  ----------*/
+@font-face {
+  font-family: "Open house";
+  src: url("../fonts/Openhouse.woff2") format("woff2"), url("../fonts/Openhouse.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/*# sourceMappingURL=fonts.css.map */

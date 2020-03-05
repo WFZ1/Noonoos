@@ -1,6 +1,13 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <default>
+        <reference name="header">
+            <block type="core/template" name="header-links" template="links/header-links.phtml" />
+        </reference>
+        <reference name="footer">
+            <block type="core/template" name="footer-links" template="links/footer-links.phtml" />
+            <block type="core/template" name="share-links" template="links/share-links.phtml" />
+            <block type="core/template" name="payments.icons" template="payments/icons.phtml" />
+        </reference>
     </default>
 </layout>
-

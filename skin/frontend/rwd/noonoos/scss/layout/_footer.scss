@@ -37,27 +37,43 @@
 }
 
 .footer {
-    clear: both;
-    width: 100%;
-    border-top: 1px solid $c-module-border;
-    padding-top: $trim;
-
+    display: flex;
     @include bp(max-width, $bp-xsmall) {
         padding-top: $trim-small;
     }
 
+    .container {
+        margin-left: 20px;
+
+        .block {
+            margin-bottom: 0;
+            display: flex;
+            align-items: baseline;
+            justify-content: flex-end;
+            margin-top: 5px;
+        }
+    }
+
     .block-title {
-        border-bottom: 0;
-        padding: 3px 0;
-    }
+        margin-bottom: 5px;
+        color: $c-black;
+        font-size: 25px;
+        line-height: 1;
 
-    .block-title strong {
-        font-weight: normal;
-    }
+        strong {
+            font-weight: 700;
+            font-size: inherit;
+            letter-spacing: -.0984em;
+            color: inherit;
+            font-family: $f-stack-default;
+            margin-right: 3px;
+        }
 
-    .block-title,
-    address {
-        color: $c-text-primary;
+        > span {
+            font-family: $f-stack-extra;
+            font-weight: 300;
+            letter-spacing: -.0103125em;
+        }
     }
 
     .links {
@@ -81,15 +97,16 @@
     }
 
     .block-subscribe {
-        float: right;
-        width: 320px;
-        margin-bottom: $trim;
+        margin-bottom: 0;
+        margin-right: auto;
+        max-width: 260px;
     }
 
     .links,
     .block-subscribe {
         text-transform: uppercase;
         font-size: $f-size-xs;
+
     }
 
     .form-subscribe-header {
@@ -136,43 +153,75 @@
     // ---------------------------------------------
 
     .block-subscribe .input-box {
-        float: left;
-        width: percentage(210px/320px);
         padding-top: 0;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1;
+
+        span {
+            flex-shrink: 0;
+            margin-right: 3px;
+            color: #333;
+            font-family: $f-stack-extra;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .030909091em;
+        }
+
+        .validation-advice {
+            order: -1;
+            margin: 0 0 10px;
+            width: 100%;
+        }
     }
 
     .block-subscribe .input-text {
+        flex: 1;
         width: 100%;
-        border-right: 0;
-        @include border-radius(0);
+        height: initial;
+        font-size: 11px;
+        line-height: 1;
+        padding: 0;
+        border: 0;
+        border-radius: 0;
+        border-bottom: 1px solid #000000;
     }
 
-    .block-subscribe .block-content {
-        padding-top: 7px;
+    .block-content {
+        margin-top: 0;
+        display: flex;
+        align-items: flex-end;
 
-        &:after {
-            @include clearfix;
+        button {
+            width: 8px;
+            border: 0;
+            background: none;
+            padding: 0;
+            height: 100%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            &:hover, &:active, &:focus {
+                background: none;
+            }
+
+            &::before {
+                content: '';
+                border-style: solid;
+                border-width: 4.5px 0 4.5px 5px;
+                border-color: transparent transparent transparent #000000;
+            }
         }
     }
 
     .block-subscribe .actions {
-        float: left;
-        width: percentage(110px/320px);
         margin: 0;
     }
 
-    .block-subscribe .actions .button {
-        height: 30px;
-        line-height: 17px;
-        float: left;
-    }
-
-    .bugs,
-    address {
-        clear: both;
-    }
-
     .bugs {
+        clear: both;
         display: none;
     }
 
@@ -188,13 +237,31 @@
         display: none;
     }
 
+    address,
+    .payments {
+        font-family: $f-stack-special;
+        font-size: 8px;
+        text-transform: uppercase;
+    }
+
     address {
-        border-top: 1px solid $c-module-border;
-        text-align: center;
-        width: 100%;
-        font-size: $f-size-xxs;
-        margin-top: $trim;
-        padding: $trim 0;
+        letter-spacing: .00625em;
+        margin-right: 15px;
+        white-space: pre-wrap;
+    }
+
+    .payments {
+        display: flex;
+        align-items: flex-end;
+
+        span {
+            letter-spacing: .01em;
+            color: #827e79;
+        }
+
+        picture {
+            margin-bottom: -3px;
+        }
     }
 
     @include bp(max-width, $bp-xlarge) {
@@ -244,5 +311,71 @@
             float: left;
             width: 100%;
         }
+    }
+}
+
+.footer-links {
+    display: flex;
+    font-family: $f-stack-special;
+    font-size: 9px;
+    text-transform: uppercase;
+    letter-spacing: .006666667em;
+
+    li + li {
+        margin-left: 18px;
+    }
+}
+
+.footer-share {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 15px;
+
+    span {
+        font-family: $f-stack-extra;
+        font-size: 14px;
+        font-weight: 500;
+        letter-spacing: -.008571429em;
+        margin-top: -3px;
+    }
+
+    ul {
+        display: flex;
+
+        li {
+            margin-left: 5px;
+
+            &:first-child {
+                margin-top: -2px;
+            }
+
+            &:last-child {
+                margin-top: 1px;
+            }
+
+            a {
+                text-indent: 9999px;
+                display: block;
+                width: 21px;
+                height: 21px;
+                transition: opacity .25s;
+
+                &:hover {
+                    opacity: .6;
+                }
+            }
+        }
+    }
+
+    .google-plus {
+        background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAICAgICAQICAgIDAgIDAwYEAwMDAwcFBQQGCAcJCAgHCAgJCg0LCQoMCggICw8LDA0ODg8OCQsQERAOEQ0ODg7/2wBDAQIDAwMDAwcEBAcOCQgJDg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg4ODg7/wgARCAAZABcDAREAAhEBAxEB/8QAGgAAAgIDAAAAAAAAAAAAAAAAAAYHCAMECf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAO9hpmUWSgpd0YCMxpJdAD//xAArEAACAgEEAAQEBwAAAAAAAAABAgMEBgAFERIHCBMxFBUhQSAyM2FkwtP/2gAIAQEAAT8Au3YKcMbSK0rySenEiKCztwTwOSB7KdDeZOhPyi4AP3h/01W3SCa8a8teSpYKGRUlCksoIBI6M33YazOeSOfG0jJBfdmUnn+LO39deM/jL5jsY883hZjGIeEM+9Y1Zv7jHU6ZrSqJk6ptrSEOjoTX9FuXHf8AMU1i+4X7Oc7GdzrNRvT7HPNYqmYSCB+9bsnYDq3UsR2HvrM8c3DfNlpDbfQe5SvfFwx2n6RSExSRdSwVin0l55Ct7camwLOJr1e1Nj+Lz2a3Y1pn3iUvEWHVupNPleR9DxrEcOyehnsu+758tqCKg9SrUo2Hn7GSRHeRnaOPj9JAF6n7nn8H/8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAgEBPwBP/8QAFBEBAAAAAAAAAAAAAAAAAAAAMP/aAAgBAwEBPwBP/9k=);
+    }
+
+    .facebook {
+        background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAIBAQEBAQIBAQECAgICAgQDAgICAgUEBAMEBgUGBgYFBgYGBwkIBgcJBwYGCAsICQoKCgoKBggLDAsKDAkKCgr/2wBDAQICAgICAgUDAwUKBwYHCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgr/wgARCAAWABQDAREAAhEBAxEB/8QAGAABAAMBAAAAAAAAAAAAAAAABwUGCAn/xAAYAQEBAQEBAAAAAAAAAAAAAAAFBAYDAv/aAAwDAQACEAMQAAAA6V6oUTYg11lksAbkSWn8uo/VhFfoFfB4Jp//xAAnEAABBAICAQMEAwAAAAAAAAACAQMEBQYHAAgJERUiEhMUQjEyNf/aAAgBAQABPwDyL+SHYXUnb9bqXX1BRuOycdZt5U27gvSkUXX5DItgDT7Cj6LGVVJSXmG+YHuVsW2Ki17qmgv5wxyfKvpMBsZryNCqIRqLVipIAqYIpen7c8f3by87eaTm5/lVBDhWVVkT1TLSArjTLygyw+Ji2ZmTfwkCKiRKqEK888021TvBUw66I+8KaqqyNGBVf5srdOdBsx0Fg3RfcGaW17uOhu4i0I5xaYecOPJjCdo+ET2gy+aeoKKSke/VS+jngKlypXU/NEmsONutbTlAYPf2/wAmqXnc7xj6G7q5/XbNznMMvxy+q6xKv3HEp8VpZUVHDdbbdGVGfAvtm86QKgiqK4XMa8MGpsPwPJdT412l25Gosz/D9/gI9j5JJ/DfV1hPrKnVwEEyVfgSKvOpHTPVfTLVTmqNVSreZHlWz1nZ2l3PQ5c6W4IArritNttp6NtNAiAAogtjz//EACMRAAEDAwMFAQAAAAAAAAAAAAECAwUABBEGITESNHHB0WL/2gAIAQIBAT8AgIBuWZW4pWMVdaVi7VOXXSAfHypWKbsbstpORjNaD7N3z6FaiYk7qbaZHSUnPQDxxvmtVgCVx+R7qMnb2LbUhk7GndR3lxcIfcAKkZwd/tXks/fPl1zmv//EACARAAAHAAIDAQAAAAAAAAAAAAABAgMEBRESIQYiMkH/2gAIAQMBAT8AsbJcJWEGrmS5uJ3BEslPMclFhjyJWPJFc7GTXr36/RA9o+kJlYxN7WEUrKWlpI+jDEFDDfAjH//Z);
+    }
+
+    .twitter {
+        background-image: url(data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAQDAwMDAgQDAwMEBAQFBgoGBgUFBgwICQcKDgwPDg4MDQ0PERYTDxAVEQ0NExoTFRcYGRkZDxIbHRsYHRYYGRj/2wBDAQQEBAYFBgsGBgsYEA0QGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBj/wgARCAAVABYDAREAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAABQYIBAf/xAAYAQADAQEAAAAAAAAAAAAAAAAEBQYDAv/aAAwDAQACEAMQAAAAtAxKDJWuK94jNJ7iVFOUlH2xPFjl7HJYn//EACkQAAEDAwQBAQkAAAAAAAAAAAECAwQFBhIAERNBUQcUISIxMnGBo9L/2gAIAQEAAT8Auy5jQESZLi3EMRIhlO8SQVEDInbcHpJ1b1+m5bai1uA9NajyUqKUPhsLGyik7gJPY6OqDPcqMB1TyslNulGXyJ9wPX316koVLkVSnIGa36VglPkq5Rq07ctiFXae9LplaFXaeSrlb4wyDl8JI+vbz+etWK8HqZPO4OMvH9aNVW26RWZCZE+MpbrQxS4h1batvG6SNGybfKMC1NKfBnv/AN6p1Mp9DgeyU6PxM5ZEZFRJPZJ3J1//xAAfEQACAgIBBQAAAAAAAAAAAAABAwACBBETBSIxQVH/2gAIAQIBAT8AxkcsZg8dtGOoKGdM9TLWwgkeJm11aLddY7TDnO+xjbMO7T//xAAfEQABBQACAwEAAAAAAAAAAAABAAIDBAUREhUhMVL/2gAIAQMBAT8A0LxgfwENiQrPsmePsVvP4lAUU7QPf1YL+0RKs5sFlwdKOV4Sn+FXrMgb1YF//9k=);
     }
 }

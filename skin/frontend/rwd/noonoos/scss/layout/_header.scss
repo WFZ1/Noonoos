@@ -33,6 +33,8 @@
         max-width: $max-container-width;
         margin: 0 auto;
         padding: 0 $trim;
+        min-height: 130px;
+        margin-bottom: 20px;
     }
 
     .page-header-container {
@@ -76,88 +78,36 @@
     }
 }
 
-.page-header-container .store-language-container {
-    float: right;
-    max-width: 35%;
-    padding: 13px 15px 10px 10px;
-
-    label {
-        display: none;
-    }
-    select {
-        max-width: 100%;
-    }
-}
-
-@include bp(max-width, $bp-xsmall) {
-    .page-header-container .store-language-container {
-        padding-top: 8px;
-
-        select {
-            // Setting this font-size will causing zooming on iOs devices, but it keeps header more tidy
-            font-size: $f-size-xs;
-        }
-    }
-}
-
-.header-language-background,
-.header-language-background a {
-    color: $c-text-white;
-}
-
-@include bp(max-width, $bp-medium) {
-
-    .header-language-background {
-        display: none;
-    }
-
-}
-
 /* ============================================ *
  * Logo
  * ============================================ */
 
-.logo {
+.page-header .logo {
     display: block;
-    float: left;
-    width: 65%;
-    min-width: 100px;
-    min-height: 44px;
-    text-align: center;
+    width: 100px;
+    margin: 0 auto;
     padding: $gap;
+    transition: opacity .5s;
+
+    &:hover {
+        opacity: 0.8;
+    }
 
     img {
         max-width: 100%;
     }
-
-    .small {
-        display: block;
-    }
-    .large {
-        display: none;
-    }
-}
-
-.logo:hover {
-    opacity: 0.8;
 }
 
 // ---------------------------------------------
 
 @include bp(min-width, $bp-medium + 1) {
-
-    .logo {
-        max-width: 300px;
-        min-height: 90px;
-
-        .small {
-            display: none;
-        }
-        .large {
-            display: block;
-        }
+    .page-header .logo {
+        width: initial;
+        display: inline-block;
+        padding: 0;
+        position: absolute;
+        top: 20px;
     }
-
 }
 
 /* ============================================ *
@@ -177,6 +127,10 @@
 
     .skip-links {
         border: 0;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-start;
+        margin-left: 200px;
     }
 
 }
@@ -198,6 +152,7 @@
 
 a.skip-link {
     text-decoration: none;
+    transition: opacity .5s;
 }
 
 .skip-link:not(.skip-active):hover {
@@ -207,13 +162,19 @@ a.skip-link {
 // ---------------------------------------------
 
 @include bp(max-width, $bp-medium) {
-
     .skip-link {
         border-right: 1px solid #EDEDED;
     }
 
     .skip-link:last-child {
         border-right: 0;
+    }
+}
+
+@include bp(min-width, $bp-medium + 1) {
+    .skip-link {
+        height: initial;
+        line-height: initial;
     }
 
 }
@@ -269,21 +230,17 @@ a.skip-link {
 }
 
 /* -------------------------------------------- *
- * Skip Link - Label
+ * Skip Link - Icon
  */
 
-.skip-link .label {
+.skip-link .icon {
     display: none;
 }
 
-// ---------------------------------------------
-
-@include bp(min-width, 500px) {
-
-    .skip-link .label {
-        display: inline;
+@include bp(min-width, $bp-medium + 1) {
+    .skip-link .icon {
+        display: inline-block;
     }
-
 }
 
 /* ============================================ *
@@ -331,11 +288,5 @@ a.skip-link {
 }
 
 .account-cart-wrapper {
-    position: absolute;
-    top:0px;
-    right:0px;
-
-    @include bp(max-width, $bp-medium) {
-        position: static;
-    }
+    
 }

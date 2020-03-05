@@ -182,14 +182,6 @@ input[type=tel],
 input[type=text] {
     height: 30px;
     padding: 0 8px;
-}
-
-input[type=email],
-input[type=search],
-input[type=number],
-input[type=password],
-input[type=tel],
-input[type=text] {
     width: (230px + 135px);
     max-width: 100%;
 }

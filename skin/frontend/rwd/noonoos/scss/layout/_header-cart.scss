@@ -31,17 +31,11 @@
  * Skip Link - Cart
  */
 
-.skip-cart {
-    &:not(.skip-active):hover {
-        .icon {
-            background-position: -50px (-100px + ($toolbar-icon-padding-offset/2) + 1px);
-        }
-    }
-
-    .icon {
-        @extend .icon-sprite;
-        background-position: -0px (-100px + ($toolbar-icon-padding-offset/2) + 1px);
-    }
+.skip-cart .icon {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAOCAMAAAD+MweGAAAAw1BMVEUAAAAdHR0AAAAeHh4XFxcMDAwLCwsCAgIAAAACAgIAAAAAAAAAAAAAAAAsLCwZGRkjIyMpKSkeHh4DAwMDAwMVFRUAAAAlJSUAAAAAAAAAAAAAAAAEBAQAAAATExMAAAAEBAQAAAAAAAAAAAAAAABlZWUcHBxhYWEeHh5iYmI9PT0AAABMTEw7OzsvLy8yMjJISEhDQ0NBQUE0NDQrKysnJyciIiJoaGheXl4XFxdUVFQ4ODgVFRVZWVlRUVEMDAwKCgr/WKIpAAAAJXRSTlMA43Xfzsq/Y1c8HRYSBvn38fDr59/DuK6so56JiG9gSEQ1KSMM3RzcXAAAALlJREFUCB1NwQdSAlEUBMBxyUkxZ1F03v68OQGG+59K0CrLbvyYP49G0Rr/PNgv7wcz/JmdW2EjN/g1XT1eWSvUnb0dT6bA08WJqmspyESpatkbYCIxdUyyIRnrJsfbZeskMaryKuQSuAWi9F2STAqjilR53QEvp/QhDSYtM1O2zgIYtubT1FW+y0phYgFEGYPzuUs+CsfdPYDXY1ahrLdiuo27W2BvuGF8oLW+XuBg3O8d7Z2J6s+Bbz2lG0PpZ2M+AAAAAElFTkSuQmCC);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 18px;
 }
 
 // ---------------------------------------------
@@ -49,11 +43,23 @@
 @include bp(min-width, $bp-medium + 1) {
 
     .skip-cart {
-        width: auto;
-        padding: 0 10px;
-    }
+        padding: 5px 10px;
+        border-radius: 0px 0px 50px 50px / 0px 0px 40px 40px;
+        background-color: #000;
+        width: 96px;
+        height: 40px;
 
-    .skip-cart:hover {
+        .icon {
+            margin-right: -3px;
+        }
+
+        .label {
+            color: #5f5f5f;
+            font-family: $f-stack-default;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 11px;
+        }
     }
 
     #header-cart.skip-active {
@@ -82,11 +88,10 @@
     width: 22px;
     height: 22px;
     background: rgba($c-action, 0.9);
-    color: #FFFFFF;
-    font-size: $f-size-xxs;
+    color: #FFF;
     line-height: 22px;
     text-align: center;
-    font-family: $f-stack-sans;
+    font-family: $f-stack-special;
 }
 .skip-link.skip-active .count {
     color: white;
@@ -120,20 +125,14 @@
             position: static;
             background: none;
             margin-left: 0px;
-            font-size: $f-size;
+            font-size: 13px;
             width: auto;
-
-            &:before {
-                content: '(';
-            }
-            &:after {
-                content: ')';
-            }
+            line-height: 1;
         }
     }
     .skip-cart .count,
     .skip-link.skip-active .count {
-        color: $c-action;
+        color: #fff;
     }
 }
 
