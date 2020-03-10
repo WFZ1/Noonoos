@@ -98,7 +98,7 @@
 @include bp(min-width, $bp-medium + 1) {
     .nav-primary {
         display: block;
-        margin-top: 28px;
+        margin-top: 23px;
         display: flex;
         justify-content: flex-end;
         flex-wrap: wrap;
@@ -212,7 +212,13 @@ $nav-primary-height: 30px;
         }
 
         li.level0 {
-            border-top: 3px solid;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            transition: border-color .25s;
+
+            &[class *= "nav"]:hover {
+                border-top-color: transparent;
+            }
 
             + li {
                 margin-left: 7px;    
@@ -224,34 +230,66 @@ $nav-primary-height: 30px;
 
             &.nav-1 {
                 border-top-color: #ed008c;
+
+                &:hover {
+                    border-bottom-color: #ed008c;
+                }
             }
 
             &.nav-2 {
                 border-top-color: #00aef0;
+
+                &:hover {
+                    border-bottom-color: #00aef0;
+                }
             }
 
             &.nav-3 {
                 border-top-color: #e3d621;
+
+                &:hover {
+                    border-bottom-color: #e3d621;
+                }
             }
 
             &.nav-4 {
                 border-top-color: #009454;
+
+                &:hover {
+                    border-bottom-color: #009454;
+                }
             }
 
             &.nav-5 {
                 border-top-color: #fe6d00;
+
+                &:hover {
+                    border-bottom-color: #fe6d00;
+                }
             }
 
             &.nav-6 {
                 border-top-color: #8dc73f;
+
+                &:hover {
+                    border-bottom-color: #8dc73f;
+                }
             }
 
             &.nav-7 {
                 border-top-color: #a864a9;
+
+                &:hover {
+                    border-bottom-color: #a864a9;
+                }
             }
 
             &.nav-8 {
                 border-top-color: #01aeb8;
+
+                &:hover {
+                    border-bottom-color: #01aeb8;
+                }
             }
         }
 

@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
     <default>
+        <reference name="head">
+            <action method="addItem"><type>skin_js</type><script>js/lazysizes.min.js</script></action>
+        </reference>
         <reference name="header">
             <block type="core/template" name="header-links" template="links/header-links.phtml" />
         </reference>

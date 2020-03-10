@@ -305,6 +305,12 @@ $productsGridActionHeight: 85px;
     }
 }
 
+@include bp(min-width, $bp-medium + 1) {
+    .minicart-wrapper .product-image {
+        border: 0;
+    }
+}
+
 .products-list .product-shop {
     float: right;
     width: percentage(2/3);
@@ -445,6 +451,12 @@ $productsGridActionHeight: 85px;
         }
     }
 
+}
+
+@include bp('min-width', $bp-medium + 1) {
+    .mini-products-list .product-details {
+        margin-left: 75px;
+    }
 }
 
 

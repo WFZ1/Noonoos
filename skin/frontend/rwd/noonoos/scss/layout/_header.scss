@@ -34,7 +34,7 @@
         margin: 0 auto;
         padding: 0 $trim;
         min-height: 130px;
-        margin-bottom: 20px;
+        margin-bottom: 5px;
     }
 
     .page-header-container {
@@ -210,23 +210,7 @@ a.skip-link {
  */
 
 .skip-link .icon {
-    display: inline-block;
-    width: 30px;
-    height: 30px;
     vertical-align: middle;
-}
-
-.skip-link.skip-nav .icon,
-.skip-link.skip-cart:not(.no-count) .icon {
-    margin-right: 3px;
-}
-
-@include bp(min-width, 500px) {
-
-    .skip-link .icon {
-        margin-right: 3px;
-    }
-
 }
 
 /* -------------------------------------------- *

@@ -32,8 +32,8 @@
     <div class="page-header-container">
         <a class="logo" href="<?php echo $this->getUrl('') ?>">
             <picture>
-                <source srcset="<?php echo $this->getSkinUrl('images/logo.webp'); ?>">
-                <img src="<?php echo $this->getSkinUrl('images/logo.jpg'); ?>" alt="<?php echo $this->__('Noonoos'); ?>">
+                <source data-srcset="<?php echo $this->getSkinUrl('images/logo.webp'); ?>" type="image/webp">
+                <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-srcset="<?php echo $this->getSkinUrl('images/logo.jpg'); ?>" alt="<?php echo $this->__('Noonoos'); ?>" class="lazyload">
             </picture>
         </a>
 

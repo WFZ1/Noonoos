@@ -71,7 +71,7 @@ a:hover {
 }
 
 a:focus {
-    outline-color: $c-link-active;
+    outline: none;
     color: darken($c-action, 30%);
 }
 
@@ -164,7 +164,7 @@ h6, .h6 { @include h6; }
     h3,
     strong {
         @include h4;
-        color: $c-text-primary;
+        color: $c-black;
         margin-bottom: 0;
         text-transform: uppercase;
         font-weight: 600;

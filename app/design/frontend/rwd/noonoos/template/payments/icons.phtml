@@ -1,7 +1,7 @@
 <div class="payments">
 	<span><?php echo $this->__('Shopping with us is 100% secure'); ?></span>
 	<picture>
-		<source srcset="<?php echo $this->getSkinUrl('images/payments-icons.webp') ?>">
-		<img src="<?php echo $this->getSkinUrl('images/payments-icons.png') ?>" alt="<?php echo $this->__('Payments icons'); ?>">
+		<source data-srcset="<?php echo $this->getSkinUrl('images/payments-icons.webp') ?>" type="image/webp">
+		<img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" data-srcset="<?php echo $this->getSkinUrl('images/payments-icons.png') ?>" alt="<?php echo $this->__('Payments icons'); ?>" class="lazyload">
 	</picture>
 </div>
