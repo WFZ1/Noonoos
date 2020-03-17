@@ -1,0 +1,81 @@
+<?php 
+/*
+ * Magento Product Next Previous Method.
+ */
+?>
+ 
+<?php 
+    $_product = $this->getProduct();
+    if($this->helper('catalog/data')->getCategory()){
+     
+    // if product is not in any category, do not display prev-next <img draggable="false" role="img" class="emoji" alt="🙂" src="https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/1f642.svg">
+    $cat_ids = $_product->getCategoryIds(); // get all categories where the product is located
+ 
+     
+    $cat = $this->helper('catalog/data')->getCategory();
+ 
+    $order = 'position';
+    $direction = 'asc'; // asc or desc
+     
+    //$category_products = $cat->getProductCollection()->addAttributeToSort($order, $direction);
+     
+    $category_products = $cat->getProductCollection()->addAttributeToSort('position', 'asc');
+    $category_products->addAttributeToFilter('status',1); // 1 or 2
+    $category_products->addAttributeToFilter('visibility',4); // 1.2.3.4
+     
+    //$cat_prod_ids = $category_products->getAllIds(); // get all products from the category
+     
+    $items = $category_products->getItems();
+    $cat_prod_ids = (array_keys( $items ) );
+ 
+    $_product_id = $_product->getId();
+    $_pos = array_search($_product_id, $cat_prod_ids); // get position of current product
+ 
+    $_next_pos = $_pos+1;
+    $_prev_pos = $_pos-1;
+     
+    // get the next product url
+    if( isset($cat_prod_ids[$_next_pos]) ){
+        $_next_prod = Mage::getModel('catalog/product')->load( $cat_prod_ids[$_next_pos] );
+    }
+    else{
+        $_next_prod = Mage::getModel('catalog/product')->load( reset($cat_prod_ids) );
+    }
+ 
+    // get the prev product url
+    if( isset($cat_prod_ids[$_prev_pos]) ){
+        $_prev_prod = Mage::getModel('catalog/product')->load( $cat_prod_ids[$_prev_pos] );
+    }
+    else{
+        $_prev_prod = Mage::getModel('catalog/product')->load( end($cat_prod_ids) );
+    }
+ 
+    if($_prev_prod != NULL){
+        $prev_url = $_prev_prod->getUrlPath();
+    }
+ 
+    if($_next_prod != NULL){
+        $next_url = $_next_prod->getUrlPath();
+    }
+ 
+    $_ccat = $this->helper('catalog/data')->getCategory(); //current category
+    $more_url = $_ccat->getUrl(); //current category Url
+ 
+    }
+?>
+ 
+<?php if(count($items)>1): ?> <!-- more then one item then display Next/see all/Previous options -->
+<div class="prev-next">
+    <?php if(!empty($_ccat)): ?>
+        <ul id="nextPrevious">
+            <?php if(!empty($prev_url)): ?>
+            <li class="previous"><a class="previous" id="prevLink" href="<?php echo $prev_url ?>"><?php echo $this->__('Previous item')?></a></li>
+            <?php endif ?>
+            <span class="delimiter">|</span>
+            <?php if(!empty($next_url)): ?>
+            <li class="next"><a class="next" id="nextLink" href="<?php echo $next_url ?>"><?php echo $this->__('Next item')?></a></li>
+            <?php endif ?>
+        </ul>
+    <?php endif ?>
+</div>
+<?php endif;?>
